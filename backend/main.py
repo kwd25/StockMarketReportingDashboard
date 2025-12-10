@@ -32,9 +32,14 @@ df = df.sort_values(["ticker", "date"]).reset_index(drop=True)
 app = FastAPI()
 client = OpenAI()
 
+origins = [
+    "http://localhost:5173",
+    "https://stock-market-reporting-dashboard.vercel.app",
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
