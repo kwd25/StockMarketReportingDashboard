@@ -79,7 +79,8 @@ type CandlePoint = {
 
 
 
-const API_BASE = "http://localhost:8000";
+const API_BASE =
+  import.meta.env.VITE_API_BASE || "http://localhost:8000";
 
 function formatPct(x: number, digits = 1): string {
   const v = x * 100;
